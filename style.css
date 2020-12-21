@@ -58,7 +58,7 @@ button{
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  box-shadow: 0 0.3rem rgba(121,121,121,0.65) ;
+  box-shadow: 0.3rem 0.3rem rgba(121,121,121,0.65) ;
   height: 2.5rem;
   color: #fff;
   background-color: #333;
@@ -66,10 +66,22 @@ button{
   padding: 0.5rem 1rem;
 }
 
+.fa-twitter{
+  font-size: 1.5rem;
+}
+
 button:hover{
   filter: brightness(120%);
 }
 
+button:active{
+  transform: translate(0, 0.2rem);
+  box-shadow: 0 0.1rem rgba(255, 255, 255, 0.4);
+}
+
+.twitter-button:hover{
+  color: #38a1f3;
+}
 /* Media Query : tablet or smaller */
 @media screen and (max-width: 1000px) {
   .quote-container {

@@ -12,10 +12,11 @@ const apiUrl = 'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&forma
 try{
 const res = await fetch (proxyUrl + apiUrl);
 const data = await res.json();
-console.log(data);
+quoteText.innerText = data.quoteText;
+quoteAuthor.innerText = data.quoteAuthor;
 } catch(error){
     getQuote();
-    console.log('No Quote to display!', error);
+    
 }
 }
 

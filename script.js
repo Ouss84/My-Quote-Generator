@@ -1,3 +1,10 @@
+//Manipulating the DOM elements
+const quoteContainer = document.querySelector('#quote-container');
+const quoteText = document.querySelector('#quote');
+const quoteAuthor = document.querySelector('#author');
+const twitterBtn = document.querySelector('#twitter');
+const newQuoteBtn = document.querySelector('#new-quote');
+
 // Get Quote function from API
 async function getQuote () {
 const proxyUrl = 'https://pacific-escarpment-24387.herokuapp.com/'

@@ -12,8 +12,21 @@ const apiUrl = 'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&forma
 try{
 const res = await fetch (proxyUrl + apiUrl);
 const data = await res.json();
+
+//reduce font size If the quote is too long
+if (data.quoteText.length > 100){
+    quoteText.classList.add('long-quote')
+}else{
+    quoteText.classList.remove('long-quote')
+}
 quoteText.innerText = data.quoteText;
-quoteAuthor.innerText = data.quoteAuthor;
+
+//If the author is unknown
+if (data.quoteAuthor === ''){
+    quoteAuthor.innerText ="Unknown"
+}else {
+    quoteAuthor.innerText = data.quoteAuthor;
+}
 } catch(error){
     getQuote();
     

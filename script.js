@@ -29,8 +29,15 @@ if (data.quoteAuthor === ''){
 }
 } catch(error){
     getQuote();
-    
 }
+}
+
+//tweet Quote function
+function tweetQuote() {
+    const quote = quoteText.innerText;
+    const author = quoteAuthor.innerText;
+    const tweetURL = `https://twitter.com/intent/tweet?text=${quote} - ${author}`;
+    window.open(tweetURL);
 }
 
 //On Load

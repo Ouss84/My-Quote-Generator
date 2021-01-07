@@ -4,9 +4,24 @@ const quoteText = document.querySelector('#quote');
 const quoteAuthor = document.querySelector('#author');
 const twitterBtn = document.querySelector('#twitter');
 const newQuoteBtn = document.querySelector('#new-quote');
+const loader =document.querySelector('#loader');
 
+// showing loader
+function loading (){
+    loader.hidden = false;
+    quoteContainer.hidden=true;
+}
+
+// quote loaded
+function loaded (){
+    if (!loader.hidden){
+        quoteContainer.hidden=false;
+        loader.hidden=true;
+    }
+}
 // Get Quote function from API
 async function getQuote () {
+loading();
 const proxyUrl = 'https://pacific-escarpment-24387.herokuapp.com/'
 const apiUrl = 'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json';
 try{
@@ -27,6 +42,7 @@ if (data.quoteAuthor === ''){
 }else {
     quoteAuthor.innerText = data.quoteAuthor;
 }
+loaded()
 } catch(error){
     getQuote();
 }
